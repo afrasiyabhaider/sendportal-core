@@ -393,21 +393,17 @@ class Campaign extends BaseModel
     /**
      * Interact with `is_open_tracking` attribute.
      */
-    protected function isOpenTracking(): Attribute
+    protected function getIsOpenTrackingAttribute($value)
     {
-        return Attribute::make(
-            get: fn(mixed $value) => (bool)$value,
-        );
+        return (bool)$value;
     }
 
 
     /**
      * Interact with `is_click_tracking` attribute.
      */
-    protected function isClickTracking($value)
+    protected function getIsClickTrackingAttribute($value)
     {
-        return Attribute::make(
-            get: fn(mixed $value) => (bool)$value,
-        );
+        return (bool)$value;
     }
 }
