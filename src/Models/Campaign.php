@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 
 /**
  * @property int $id
@@ -387,5 +388,26 @@ class Campaign extends BaseModel
         }
 
         return $this->active_subscriber_count === $this->messages()->count();
+    }
+
+    /**
+     * Interact with `is_open_tracking` attribute.
+     */
+    protected function isOpenTracking(): Attribute
+    {
+        return Attribute::make(
+            get: fn(mixed $value) => (bool)$value,
+        );
+    }
+
+
+    /**
+     * Interact with `is_click_tracking` attribute.
+     */
+    protected function isClickTracking($value)
+    {
+        return Attribute::make(
+            get: fn(mixed $value) => (bool)$value,
+        );
     }
 }
