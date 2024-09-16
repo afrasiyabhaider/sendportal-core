@@ -96,11 +96,11 @@ class Campaign extends BaseModel
             'workspace_id' => 'int',
             'template_id' => 'int',
             'email_service_id' => 'int',
-            'is_open_tracking' => 'bool',
-            'is_click_tracking' => 'bool',
+            'is_open_tracking' => 'boolean',
+            'is_click_tracking' => 'boolean',
             'scheduled_at' => 'datetime',
-            'save_as_draft' => 'bool',
-            'send_to_all' => 'bool',
+            'save_as_draft' => 'boolean',
+            'send_to_all' => 'boolean',
         ];
     }
 
